@@ -1,3 +1,20 @@
 body {
   background-color: grey;
+  text-align: center;
+}
+
+.divTable {
+  border: 2px solid black;
+  position: absolute;
+}
+
+.divTableCell {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  display: inline-block;
+}
+
+.divTableRow {
+  border: 2px solid black;
 }
