@@ -2,8 +2,31 @@ body {
   background-color: grey;
 }
 
-.canvas {
-  width: 10em;
-  height: 10em;
-  border: 2px solid black;
+.square{
+    width: 100px;
+    height: 100px;
+}
+
+.centerColumn {
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-color: yellow;
+}
+
+.centerRow {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-color: green;
+}
+
+table {
+  border: 1px solid black;
+}
+
+.X {
+  background-color: teal;
+}
+
+.O {
+  background-color: orange;
 }
