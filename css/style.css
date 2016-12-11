@@ -1,0 +1,26 @@
+
+h1 {
+  position: relative;
+  left: 328px;
+}
+
+.board {
+  position: relative;
+  left: 140px;
+  width: 500px;
+}
+.boxes {
+  background: white;
+  border: 2px solid black;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  margin: auto;
+  position: relative;
+  float: right;
+  line-height: 150px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 100px;
+}
+
