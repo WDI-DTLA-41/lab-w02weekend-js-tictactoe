@@ -20,7 +20,11 @@ var makePlay = function (event) {
   if (event.target.innerHTML === "") {
     event.target.innerHTML = currentPlayer;
     previousPlayer = currentPlayer;
-    currentPlayer = PlayerO;
+    if (previousPlayer === PlayerX) {
+      currentPlayer = PlayerO;
+    } else {
+      currentPlayer = PlayerX;
+    }
     console.log(previousPlayer);
     console.log(currentPlayer);
 
