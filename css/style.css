@@ -29,15 +29,13 @@ table {
 
 td {
   text-align: center;
+  font-size: 1.75em;
 }
 
 .X {
   color: teal;
-  font-size: 1.75em;
 }
 
 .O {
   color: orange;
-  font-size: 1.75em;
-  padding: 0;
 }
