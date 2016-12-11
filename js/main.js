@@ -7,9 +7,11 @@ var PlayerO = 2; // O will equal 2
 var previousPlayer;
 var currentPlayer = PlayerX;
 
+// Get Table and Table Cells
+$table = document.querySelector('table');
 $tableCells = document.querySelectorAll('td');
 
-// Using zero to represent cell is available
+// Uses zero to represent cell
 var board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 
@@ -29,14 +31,6 @@ var makePlay = function (event) {
   };
 
 };
-
-
-
-
-// Get Table
-$table = document.querySelector('table');
-$table.addEventListener('click', makePlay);
-
 
 // Determine Player
 var playerSelection = function () {
@@ -70,27 +64,20 @@ var renderGame = function () {
   };
 };
 
-
-
-
-
-
-
-
-
 // Reset Game Board
 // Add Event Listener to Reset Button
-$resetBtn = document.querySelector('#resetButton')
+$resetBtn = document.querySelector('#resetButton');
 
 // Reset function
-
 var resetGame = function () {
-  for (var i = 0; i < $tableCells.length; i++) {
-    $tableCells[i].innerHTML = "";
-  }
+  for (var i = 0; i < board.length; i++) {
+    board[i] = 0;
+    $tableCells[i].innerHTML = null;
+  };
   console.log('reset game board');
 
-}
+};
 
-// Add Event Listener to Reset Button
+// Add Event Listeners
+$table.addEventListener('click', makePlay);
 $resetBtn.addEventListener('click', resetGame);
