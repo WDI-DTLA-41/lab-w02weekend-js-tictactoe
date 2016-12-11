@@ -103,13 +103,6 @@ var determineWinner = function() {
 
 };
 
-
-
-
-
-
-
-
 // Reset Game Board
 // Reset function
 var resetGame = function () {
