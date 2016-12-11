@@ -7,6 +7,8 @@ var PlayerO = 'O';
 var previousPlayer;
 var currentPlayer = PlayerX;
 
+$tableCells = document.querySelectorAll('td');
+
 // Event Listener for Table Cells
 // apply to table itself
 var makePlay = function (event) {
@@ -27,7 +29,22 @@ var makePlay = function (event) {
 
 // Get Table
 $table = document.querySelector('table');
-// Get all the Cells
-$Cells = document.querySelectorAll('td')
-
 $table.addEventListener('click', makePlay);
+
+
+// Reset Game Board
+// Add Event Listener to Reset Button
+$resetBtn = document.querySelector('#resetButton')
+
+// Reset function
+
+var resetGame = function () {
+  for (var i = 0; i <$tableCells.length; i++) {
+    $tableCells[i].innerHTML = "";
+  }
+  console.log('reset game board');
+
+}
+
+// Add Event Listener to Reset Button
+$resetBtn.addEventListener('click', resetGame);

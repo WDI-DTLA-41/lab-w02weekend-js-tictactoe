@@ -1,5 +1,6 @@
 body {
   background-color: grey;
+  text-align: center;
 }
 
 .square{
@@ -8,19 +9,23 @@ body {
 }
 
 .centerColumn {
-    border-left: 1px solid #000000;
-    border-right: 1px solid #000000;
-    border-color: yellow;
+    border-left: .50em solid #000000;
+    border-right: .50em solid #000000;
 }
 
 .centerRow {
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
-    border-color: green;
+    border-top: .50em solid #000000;
+    border-bottom: .50em solid #000000;
+    border
 }
 
 table {
   border: 1px solid black;
+  margin: 1em 25% 1em 25%;
+}
+
+td {
+  text-align: center;
 }
 
 .X {
@@ -29,4 +34,9 @@ table {
 
 .O {
   background-color: orange;
+}
+
+div {
+  border: 2px solid black;
+  text-align: center;
 }
