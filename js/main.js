@@ -73,34 +73,39 @@ var renderGame = function () {
 // Calculate Winner
 // array of winning combinations
 var winningCombinations = [[0, 1, 2],[3, 4, 5],[6, 7, 8],
-           [0, 4, 8],[6, 4, 2],[2, 5, 8],[0, 3, 6]];
+           [0, 4, 8],[6, 4, 2],[2, 5, 8],[0, 3, 6],[1, 4, 7]];
 
 // Works
 var determineWinner = function() {
   if (board[0] === 1 && board[1] === 1 && board[2] === 1 || board[3] === 1 && board[4] === 1 && board[5] === 1 || board[6] === 1 && board[7] === 1 && board[8] === 1
-    || board[0] === 1 && board[4] === 1 && board[8] === 1 || board[6] === 1 && board[4] === 1 && board[2] === 1 || board[2] === 1 && board[5] === 1 && board[8] === 1 || board[0] === 1 && board[3] === 1 && board[6] === 1 ) {
+    || board[0] === 1 && board[4] === 1 && board[8] === 1 || board[6] === 1 && board[4] === 1 && board[2] === 1 || board[2] === 1 && board[5] === 1 && board[8] === 1
+    || board[0] === 1 && board[3] === 1 && board[6] === 1 || board[1] === 1 && board[4] === 1 && board[7] === 1 ) {
     console.log ('Player X Wins');
-    alert('Player X Wins!')
+    alert('Player X Wins!');
+    $table.removeEventListener('click', makePlay);
   } else if (board[0] === 2 && board[1] === 2 && board[2] === 2 || board[3] === 2 && board[4] === 2 && board[5] === 2 || board[6] === 2 && board[7] === 2 && board[8] === 2
-    || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2 || board[0] === 2 && board[3] === 2 && board[6] === 2 ) {
+    || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2
+    || board[0] === 2 && board[3] === 2 && board[6] === 2 || board[1] === 2 && board[4] === 2 && board[7] === 2 ) {
     console.log ('Player O Wins');
     alert('Player O Wins!');
+    $table.removeEventListener('click', makePlay);
   };
 
   if (turnsLeft === 0) {
     if (board[0] === 1 && board[1] === 1 && board[2] === 1 || board[3] === 1 && board[4] === 1 && board[5] === 1 || board[6] === 1 && board[7] === 1 && board[8] === 1
-    || board[0] === 1 && board[4] === 1 && board[8] === 1 || board[6] === 1 && board[4] === 1 && board[2] === 1 || board[2] === 1 && board[5] === 1 && board[8] === 1 || board[0] === 1 && board[3] === 1 && board[6] === 1 ) {
+    || board[0] === 1 && board[4] === 1 && board[8] === 1 || board[6] === 1 && board[4] === 1 && board[2] === 1 || board[2] === 1 && board[5] === 1 && board[8] === 1
+    || board[0] === 1 && board[3] === 1 && board[6] === 1 || board[1] === 1 && board[4] === 1 && board[7] === 1) {
     console.log ('Player X Wins');
-    alert('Player X Wins!')
+    alert('Player X Wins!');
   } else if (board[0] === 2 && board[1] === 2 && board[2] === 2 || board[3] === 2 && board[4] === 2 && board[5] === 2 || board[6] === 2 && board[7] === 2 && board[8] === 2
-    || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2 || board[0] === 2 && board[3] === 2 && board[6] === 2 ) {
+    || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2
+    || board[0] === 2 && board[3] === 2 && board[6] === 2 || board[1] === 2 && board[4] === 2 && board[7] === 2) {
     console.log ('Player O Wins');
     alert('Player O Wins!');
   } else {
     alert("Cats. You're both losers");
+    };
   };
- }
-
 };
 
 // Reset Game Board
@@ -115,8 +120,10 @@ var resetGame = function () {
       $tableCells[i].classList.remove('O');
     };
   };
-  playerUp.textContent = null;
+  currentPlayer = PlayerX;
+  playerUp.textContent = 'X';
   turnsLeft = 9;
+  $table.addEventListener('click', makePlay);
   console.log('reset game board');
 
 };
