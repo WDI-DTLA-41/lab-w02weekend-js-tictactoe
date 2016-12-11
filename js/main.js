@@ -4,6 +4,9 @@ console.log('linked!')
 var PlayerX = 'X';
 var PlayerO = 'O';
 
+var previousPlayer;
+var currentPlayer = PlayerX;
+
 // Event Listener for Table Cells
 // apply to table itself
 var makePlay = function (event) {
@@ -12,7 +15,14 @@ var makePlay = function (event) {
     return false;
   };
 
-  console.log(event.target.id);
+  if (event.target.innerHTML === "") {
+    event.target.innerHTML = currentPlayer;
+    previousPlayer = currentPlayer;
+    currentPlayer = PlayerO;
+    console.log(previousPlayer);
+    console.log(currentPlayer);
+
+  };
 };
 
 // Get Table
