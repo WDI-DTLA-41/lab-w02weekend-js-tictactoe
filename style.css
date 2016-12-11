@@ -1,5 +1,5 @@
 body {
-  background: teal;
+  background: rgba(100,50,0,.2);
 }
 
 #gameboard {
@@ -13,7 +13,7 @@ body {
   width: 100px;
   border: 1px solid black;
   float: left;
-  font-size: 60px;
+  font-size: 70px;
   text-align: center;
 }
 

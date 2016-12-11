@@ -19,23 +19,34 @@ var handlePlayerTwo = function(evt) {
 
 // handle to create either X or O on the board
 var handleX = function(evt) {
-  if (evt.target.textContent = 0);
+  if (evt.target.textContent = ' ') {
     evt.target.textContent = 'X';
+  }
+  winConditionX();
   gameboard.removeEventListener('click', handleX);
 }
 
 var handleO = function(evt) {
-  if (evt.target.textContent = 0);
+  if (evt.target.textContent = ' ') {
     evt.target.textContent = 'O';
+  }
   gameboard.removeEventListener('click', handleO);
 }
 
+// handle the reset of the board
 var handleReset = function() {
   for(var i = 0; i < allBoxes.length; i++) {
   allBoxes[i].textContent = '';
   }
 }
 
+var winConditionX = function() {
+  if (((allBoxes[0].textContent) && (allBoxes[1].textContent) === 'X') && ((allBoxes[2].textContent) === 'X')) {
+    return console.log("Player One Wins!");
+  } else {
+    return false;
+  }
+};
 
 
 
