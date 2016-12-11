@@ -21,7 +21,10 @@ body {
 
 table {
   border: 1px solid black;
-  margin: 1em 25% 1em 25%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+
 }
 
 td {
@@ -34,9 +37,4 @@ td {
 
 .O {
   background-color: orange;
-}
-
-div {
-  border: 2px solid black;
-  text-align: center;
 }
