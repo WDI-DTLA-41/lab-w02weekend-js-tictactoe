@@ -1,0 +1,22 @@
+body {
+  background: teal;
+}
+
+#gameboard {
+  width:308px;
+  height:308px;
+  margin:20px;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  float: left;
+  font-size: 60px;
+  text-align: center;
+}
+
+#reset {
+
+}
