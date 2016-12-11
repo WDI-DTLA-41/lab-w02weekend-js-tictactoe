@@ -74,51 +74,15 @@ var winningCombinations = [[0, 1, 2],[3, 4, 5],[6, 7, 8],
 
 // Works
 var determineWinner = function() {
-  if ( document.getElementById('0').classList.contains('X') && document.getElementById('1').classList.contains('X') && document.getElementById('2').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('0').classList.contains('O') && document.getElementById('1').classList.contains('O') && document.getElementById('2').classList.contains('O') ) {
-    console.log('Player O Wins!');
-    alert('Player O Wins!');
-  } else if ( document.getElementById('3').classList.contains('X') && document.getElementById('4').classList.contains('X') && document.getElementById('5').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('3').classList.contains('O') && document.getElementById('4').classList.contains('O') && document.getElementById('5').classList.contains('O') ) {
-       console.log('Player O Wins!');
-       alert('Player O Wins!');
-  } else if ( document.getElementById('6').classList.contains('X') && document.getElementById('7').classList.contains('X') && document.getElementById('8').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('6').classList.contains('O') && document.getElementById('7').classList.contains('O') && document.getElementById('8').classList.contains('O') ) {
-       console.log('Player O Wins!');
-       alert('Player O Wins!');
-  } else if ( document.getElementById('0').classList.contains('X') && document.getElementById('4').classList.contains('X') && document.getElementById('8').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('0').classList.contains('O') && document.getElementById('4').classList.contains('O') && document.getElementById('8').classList.contains('O') ) {
-       console.log('Player O Wins!');
-       alert('Player O Wins!');
-  } else if ( document.getElementById('6').classList.contains('X') && document.getElementById('4').classList.contains('X') && document.getElementById('2').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('6').classList.contains('O') && document.getElementById('4').classList.contains('O') && document.getElementById('2').classList.contains('O') ) {
-       console.log('Player O Wins!');
-       alert('Player O Wins!');
-  } else if ( document.getElementById('2').classList.contains('X') && document.getElementById('5').classList.contains('X') && document.getElementById('8').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('2').classList.contains('O') && document.getElementById('5').classList.contains('O') && document.getElementById('8').classList.contains('O') ) {
-       console.log('Player O Wins!');
-       alert('Player O Wins!');
-  } else if ( document.getElementById('0').classList.contains('X') && document.getElementById('3').classList.contains('X') && document.getElementById('6').classList.contains('X') ) {
-       console.log('Player X Wins!');
-       alert('Player X Wins!');
-  } else if ( document.getElementById('0').classList.contains('O') && document.getElementById('3').classList.contains('O') && document.getElementById('6').classList.contains('O') ) {
-       console.log('Player O Wins!');
-       alert('Player O Wins!');
-  }
+  $refBoard = board.toString();
+  if (board[0] === 1 && board[1] === 1 && board[2] === 1 || board[3] === 1 && board[4] === 1 && board[5] === 1 || board[6] === 1 && board[7] === 1 && board[8] === 1
+    || board[0] === 1 && board[4] === 1 && board[8] === 1 || board[6] === 1 && board[4] === 1 && board[2] === 1 || board[2] === 1 && board[5] === 1 && board[8] === 1 || board[0] === 1 && board[3] === 1 && board[6] === 1 ) {
+    console.log ('Player X Wins');
+  } else if (board[0] === 2 && board[1] === 2 && board[2] === 2 || board[3] === 2 && board[4] === 2 && board[5] === 2 || board[6] === 2 && board[7] === 2 && board[8] === 2
+    || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2 || board[0] === 2 && board[3] === 2 && board[6] === 2 ) {
+    console.log ('Player O Wins');
+  };
 };
-
 
 
 
@@ -133,6 +97,11 @@ var resetGame = function () {
   for (var i = 0; i < board.length; i++) {
     board[i] = 0;
     $tableCells[i].innerHTML = null;
+    if ($tableCells[i].classList.contains('X')) {
+      $tableCells[i].classList.remove('X');
+    } else if ($tableCells[i].classList.contains('O')) {
+      $tableCells[i].classList.remove('O');
+    };
   };
   console.log('reset game board');
 
