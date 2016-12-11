@@ -6,6 +6,7 @@ var PlayerO = 2; // O will equal 2
 
 var previousPlayer;
 var currentPlayer = PlayerX;
+var turnsLeft = 9;
 
 // Get Table, Table Cells and Reset Button
 $table = document.querySelector('table');
@@ -38,6 +39,7 @@ var playerSelection = function () {
       previousPlayer = PlayerX;
       currentPlayer = PlayerO;
       playerUp.textContent = 'O';
+      turnsLeft = turnsLeft - 1;
       return true;
     }
 
@@ -46,6 +48,7 @@ var playerSelection = function () {
       previousPlayer = PlayerO;
       currentPlayer = PlayerX;
       playerUp.textContent = 'X';
+      turnsLeft = turnsLeft - 1;
       return true;
     };
 
@@ -82,9 +85,22 @@ var determineWinner = function() {
     || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2 || board[0] === 2 && board[3] === 2 && board[6] === 2 ) {
     console.log ('Player O Wins');
     alert('Player O Wins!');
+  };
+
+  if (turnsLeft === 0) {
+    if (board[0] === 1 && board[1] === 1 && board[2] === 1 || board[3] === 1 && board[4] === 1 && board[5] === 1 || board[6] === 1 && board[7] === 1 && board[8] === 1
+    || board[0] === 1 && board[4] === 1 && board[8] === 1 || board[6] === 1 && board[4] === 1 && board[2] === 1 || board[2] === 1 && board[5] === 1 && board[8] === 1 || board[0] === 1 && board[3] === 1 && board[6] === 1 ) {
+    console.log ('Player X Wins');
+    alert('Player X Wins!')
+  } else if (board[0] === 2 && board[1] === 2 && board[2] === 2 || board[3] === 2 && board[4] === 2 && board[5] === 2 || board[6] === 2 && board[7] === 2 && board[8] === 2
+    || board[0] === 2 && board[4] === 2 && board[8] === 2 || board[6] === 2 && board[4] === 2 && board[2] === 2 || board[2] === 2 && board[5] === 2 && board[8] === 2 || board[0] === 2 && board[3] === 2 && board[6] === 2 ) {
+    console.log ('Player O Wins');
+    alert('Player O Wins!');
   } else {
-    console.log("CATS?")
-  }
+    alert("Cats. You're both losers");
+  };
+ }
+
 };
 
 
@@ -107,6 +123,7 @@ var resetGame = function () {
     };
   };
   playerUp.textContent = null;
+  turnsLeft = 9;
   console.log('reset game board');
 
 };
