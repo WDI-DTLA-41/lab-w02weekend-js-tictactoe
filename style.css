@@ -1,0 +1,56 @@
+header {
+  text-align:center;
+  font-size:40px;
+  text-decoration: underline;
+}
+
+td {
+  width:200px;
+  height:190px;
+  border:1px grey solid;
+}
+
+td:hover {
+  cursor:pointer;
+}
+
+button {
+  font-size:30px;
+  float:right;
+  margin-right:409px;
+  margin-top:10px;
+}
+
+button:hover {
+  cursor:pointer;
+}
+
+.xValue {
+  text-align:center;
+  font-size:150px;
+}
+
+.oValue {
+  text-align:center;
+  font-size:150px;
+}
+
+#h1header {
+  margin-top:10px;
+}
+
+#boardGame {
+  max-width:600px;
+  max-height:600px;
+  margin:0 auto;
+  border:3px grey solid;
+  border-collapse:collapse;
+  display:block;
+}
+
+#playerTurn {
+  margin-left:409px;
+  margin-top:10px;
+  display:inline-block;
+  font-size:25px;
+}
