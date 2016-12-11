@@ -20,7 +20,7 @@ body {
 }
 
 table {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
@@ -32,9 +32,12 @@ td {
 }
 
 .X {
-  background-color: teal;
+  color: teal;
+  font-size: 1.75em;
 }
 
 .O {
-  background-color: orange;
+  color: orange;
+  font-size: 1.75em;
+  padding: 0;
 }

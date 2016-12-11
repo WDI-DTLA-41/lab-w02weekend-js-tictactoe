@@ -7,27 +7,26 @@ var PlayerO = 2; // O will equal 2
 var previousPlayer;
 var currentPlayer = PlayerX;
 
-// Get Table and Table Cells
+// Get Table, Table Cells and Reset Button
 $table = document.querySelector('table');
 $tableCells = document.querySelectorAll('td');
+$resetBtn = document.querySelector('#resetButton');
+$playerUp = document.querySelector('#playerUp');
 
 // Uses zero to represent cell
 var board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 
-
-// Event Listener for Table Cells
-// apply to table itself
+// Function for making play
 var makePlay = function (event) {
   if (event.target === event.currentTarget) {
     event.stopPropagation();
     return false;
   };
   if ( board[event.target.id] === 0 ) {
-    console.log('cell not yet played');
     playerSelection();
     renderGame();
-
+    determineWinner();
   };
 
 };
@@ -35,18 +34,18 @@ var makePlay = function (event) {
 // Determine Player
 var playerSelection = function () {
   if ( currentPlayer === PlayerX ) {
-      console.log('current player is X');
       board[event.target.id] = 1;
       previousPlayer = PlayerX;
       currentPlayer = PlayerO;
+      playerUp.textContent = 'O';
       return true;
     }
 
     if ( currentPlayer === PlayerO ) {
-      console.log('current player is O');
       board[event.target.id] = 2;
       previousPlayer = PlayerO;
       currentPlayer = PlayerX;
+      playerUp.textContent = 'X';
       return true;
     };
 
@@ -59,15 +58,76 @@ var renderGame = function () {
     if ( board[i] === 0 ) {
     } else if ( board[i] === 1 ) {
       document.getElementById(i).innerHTML = 'X';
-    } else {document.getElementById(i).innerHTML = 'O';
+      document.getElementById(i).classList.add('X');
+    } else {
+      document.getElementById(i).innerHTML = 'O';
+      document.getElementById(i).classList.add('O');
     };
   };
 };
 
-// Reset Game Board
-// Add Event Listener to Reset Button
-$resetBtn = document.querySelector('#resetButton');
 
+// Calculate Winner
+// array of winning combinations
+var winningCombinations = [[0, 1, 2],[3, 4, 5],[6, 7, 8],
+           [0, 4, 8],[6, 4, 2],[2, 5, 8],[0, 3, 6]];
+
+// Works
+var determineWinner = function() {
+  if ( document.getElementById('0').classList.contains('X') && document.getElementById('1').classList.contains('X') && document.getElementById('2').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('0').classList.contains('O') && document.getElementById('1').classList.contains('O') && document.getElementById('2').classList.contains('O') ) {
+    console.log('Player O Wins!');
+    alert('Player O Wins!');
+  } else if ( document.getElementById('3').classList.contains('X') && document.getElementById('4').classList.contains('X') && document.getElementById('5').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('3').classList.contains('O') && document.getElementById('4').classList.contains('O') && document.getElementById('5').classList.contains('O') ) {
+       console.log('Player O Wins!');
+       alert('Player O Wins!');
+  } else if ( document.getElementById('6').classList.contains('X') && document.getElementById('7').classList.contains('X') && document.getElementById('8').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('6').classList.contains('O') && document.getElementById('7').classList.contains('O') && document.getElementById('8').classList.contains('O') ) {
+       console.log('Player O Wins!');
+       alert('Player O Wins!');
+  } else if ( document.getElementById('0').classList.contains('X') && document.getElementById('4').classList.contains('X') && document.getElementById('8').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('0').classList.contains('O') && document.getElementById('4').classList.contains('O') && document.getElementById('8').classList.contains('O') ) {
+       console.log('Player O Wins!');
+       alert('Player O Wins!');
+  } else if ( document.getElementById('6').classList.contains('X') && document.getElementById('4').classList.contains('X') && document.getElementById('2').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('6').classList.contains('O') && document.getElementById('4').classList.contains('O') && document.getElementById('2').classList.contains('O') ) {
+       console.log('Player O Wins!');
+       alert('Player O Wins!');
+  } else if ( document.getElementById('2').classList.contains('X') && document.getElementById('5').classList.contains('X') && document.getElementById('8').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('2').classList.contains('O') && document.getElementById('5').classList.contains('O') && document.getElementById('8').classList.contains('O') ) {
+       console.log('Player O Wins!');
+       alert('Player O Wins!');
+  } else if ( document.getElementById('0').classList.contains('X') && document.getElementById('3').classList.contains('X') && document.getElementById('6').classList.contains('X') ) {
+       console.log('Player X Wins!');
+       alert('Player X Wins!');
+  } else if ( document.getElementById('0').classList.contains('O') && document.getElementById('3').classList.contains('O') && document.getElementById('6').classList.contains('O') ) {
+       console.log('Player O Wins!');
+       alert('Player O Wins!');
+  }
+};
+
+
+
+
+
+
+
+
+
+// Reset Game Board
 // Reset function
 var resetGame = function () {
   for (var i = 0; i < board.length; i++) {
