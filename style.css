@@ -32,11 +32,11 @@ button {
 }
 
 .red {
-  background:red;
+  background:rgba(200,0,0,.9);
 }
 
 .blue {
-  background:blue;
+  background:rgba(0,0,200,.9);
 }
 
 

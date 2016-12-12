@@ -19,8 +19,10 @@ var handlePlayerTwo = function(evt) {
 
 // handle to create either X or O on the board
 var handleX = function(evt) {
-  if (evt.target.textContent = ' ') {
+  if (evt.target.textContent !== 'O') {
     evt.target.textContent = 'X';
+  } else {
+    return false;
   }
   winConditionX();
   gameboard.removeEventListener('click', handleX);
@@ -29,8 +31,10 @@ var handleX = function(evt) {
 }
 
 var handleO = function(evt) {
-  if (evt.target.textContent = ' ') {
+  if (evt.target.textContent !== 'X') {
     evt.target.textContent = 'O';
+  } else {
+    return false;
   }
   winConditionO();
   gameboard.removeEventListener('click', handleO);
