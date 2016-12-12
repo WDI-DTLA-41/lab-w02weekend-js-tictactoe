@@ -1,0 +1,47 @@
+.main {
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+h3 {
+  display: inline-block;
+  margin: 0 auto;
+}
+.reset {
+  display: inline-block;
+  margin: 0 auto;
+  float: right;
+}
+.board {
+  display: inline-block;
+  width: 456px;
+  height: 456px;
+}
+.sq {
+  float: left;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border: 1px black solid;
+}
+.top {
+  border-top: none;
+}
+.bot {
+  border-bottom: none;
+}
+.left {
+  border-left: none;
+}
+.right {
+  border-right: none;
+}
+.x {
+  background-image: url(x.png);
+  background-position: center;
+}
+.o {
+  background-image: url(o.png);
+  background-position: center;
+}
