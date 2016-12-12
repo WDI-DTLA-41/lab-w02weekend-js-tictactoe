@@ -1,5 +1,5 @@
-var squares = [0,0,0,0,0,0,0,0,0];
 var board = document.querySelector('.board');
+var button = document.querySelector('button');
 
 for (i = 0; i < 9; i++){
   var boxes = document.createElement('div');
@@ -7,7 +7,6 @@ for (i = 0; i < 9; i++){
   boxes.classList = 'boxes';
   boxes.addEventListener('click', changeX);
 }
-
 
 var table = document.querySelector('table');
 
@@ -23,5 +22,13 @@ function changeX(evt){
   box.addEventListener('click', changeO)
 }
 
+function reset(evt){
+  console.log('reset clicked');
+  var boxes = document.querySelectorAll('.boxes');
+  for (i = 0; i < boxes.length; i++){
+    boxes.textContent = '';
+  }
+}
 
+button.addEventListener('click', reset);
 
