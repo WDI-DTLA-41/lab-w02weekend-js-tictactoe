@@ -3,7 +3,7 @@ console.log('hello');
 var $board = document.querySelector('#gameboard');
 var $cell = document.querySelector('.cell');
 var previousTurn = 'o';
-var $gameStatus = document.querySelector('#winner');
+var $gameStatus = document.querySelector('#game-status');
 var $reset = document.querySelector('button');
 var gameOver = null;
 var board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -17,7 +17,7 @@ var gamePlay = function(event) {
       if (previousTurn === 'o') {
         board[i] = "playerX";
         $gameStatus.textContent = "Turn: Player O";
-        event.target.innerHTML = 'x';
+        event.target.innerHTML = '<span>x</span>';
         checkScore('playerX');
         if (gameOver) {
           $gameStatus.textContent = "Player X Won!";
@@ -28,7 +28,7 @@ var gamePlay = function(event) {
       } else {
         board[i] = "playerO";
         $gameStatus.textContent = "Turn: Player X";
-        event.target.innerHTML = 'o';
+        event.target.innerHTML = '<span>o</span>';
         checkScore('playerO');
         if (gameOver) {
           $gameStatus.textContent = "Player O Won!";
@@ -50,7 +50,7 @@ var checkScore = function(player) {
     }
   }
   //check vertical match
-  for (var i = 0; i < 9; i += 3) {
+  for (var i = 0; i < 9; i += 1) {
     if (board[i] === player && board[i + 3] === player && board[i + 6] === player) {
       gameOver = true;
     }
