@@ -1,0 +1,47 @@
+body {
+  background: rgba(100,50,110,.2);
+}
+
+#gameboard {
+  width:308px;
+  height:308px;
+  margin:20px;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  float: left;
+  font-size: 70px;
+  text-align: center;
+}
+
+#reset {
+  background-color: red;
+  color: white;
+  font-size: 20px;
+}
+
+button {
+  height: 40px;
+  width: 100px;
+  background-color:gray;
+  font-size: 15px;
+  color: white;
+}
+
+.red {
+  background:rgba(200,0,0,.9);
+}
+
+.blue {
+  background:rgba(0,0,200,.9);
+}
+
+
+
+
+
+
+
