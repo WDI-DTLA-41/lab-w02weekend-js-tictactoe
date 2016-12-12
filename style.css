@@ -1,5 +1,5 @@
 body {
-  background: rgba(100,50,0,.2);
+  background: rgba(100,50,110,.2);
 }
 
 #gameboard {
@@ -18,5 +18,30 @@ body {
 }
 
 #reset {
-
+  background-color: red;
+  color: white;
+  font-size: 20px;
 }
+
+button {
+  height: 40px;
+  width: 100px;
+  background-color:gray;
+  font-size: 15px;
+  color: white;
+}
+
+.red {
+  background:red;
+}
+
+.blue {
+  background:blue;
+}
+
+
+
+
+
+
+
