@@ -40,9 +40,11 @@ var aPick = function (){
 
 squares.addEventListener('click', aPick);
 
-// squares.addEventListener("click", pick)
+
 // possible winning combinations for tic-tac-toe
-// squares [0][1][2];
+// to implement switch method on squares array
+
+// abc = [0][1][2];
 // def = [3][4][5];
 // ghi = [6][7][8];
 // adg = [0][3][6];
