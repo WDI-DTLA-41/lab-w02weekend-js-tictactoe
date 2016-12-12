@@ -1,0 +1,52 @@
+
+
+body {
+
+}
+
+/* tic tac toe box */
+.bdCell {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#reset {
+  font-size: 20px;
+  height: 30px;
+  width: 200px;
+  clear:both;
+  background: blue;
+  color: white;
+}
+/*boxes 3 across */
+#a {
+
+}
+#b {
+
+}
+#c {
+
+}
+#d {
+
+}
+#e {
+
+}
+#f {
+
+}
+#g {
+
+}
+#h {
+
+}
+#i {
+
+}
