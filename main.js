@@ -19,7 +19,7 @@ var handlePlayerTwo = function(evt) {
 
 // handle to create either X or O on the board
 var handleX = function(evt) {
-  if (evt.target.textContent = ' ') {
+  if (evt.target.textContent = '') {
     evt.target.textContent = 'X';
   }
   winConditionX();
@@ -30,6 +30,7 @@ var handleO = function(evt) {
   if (evt.target.textContent = ' ') {
     evt.target.textContent = 'O';
   }
+  winConditionO();
   gameboard.removeEventListener('click', handleO);
 }
 
@@ -41,13 +42,38 @@ var handleReset = function() {
 }
 
 var winConditionX = function() {
-  if (((allBoxes[0].textContent) && (allBoxes[1].textContent) === 'X') && ((allBoxes[2].textContent) === 'X')) {
-    return console.log("Player One Wins!");
-  } else {
-    return false;
+  if ((((allBoxes[0].textContent) && (allBoxes[1].textContent) === 'X') && ((allBoxes[2].textContent) === 'X')) ||
+    (((allBoxes[3].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[5].textContent) === 'X')) ||
+    (((allBoxes[6].textContent) && (allBoxes[7].textContent) === 'X') && ((allBoxes[8].textContent) === 'X'))) {
+      return console.log("Player One Wins!");
+  } else if
+    ((((allBoxes[0].textContent) && (allBoxes[3].textContent) === 'X') && ((allBoxes[6].textContent) === 'X')) ||
+    (((allBoxes[1].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[7].textContent) === 'X')) ||
+    (((allBoxes[2].textContent) && (allBoxes[5].textContent) === 'X') && ((allBoxes[8].textContent) === 'X'))) {
+      return console.log("Player One Wins!");
+  } else if
+    ((((allBoxes[0].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[8].textContent) === 'X')) ||
+    (((allBoxes[2].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[2].textContent) === 'X')))  {
+      return console.log("Player One Wins!");
   }
 };
 
+var winConditionO = function() {
+  if ((((allBoxes[0].textContent) && (allBoxes[1].textContent) === 'X') && ((allBoxes[2].textContent) === 'X')) ||
+    (((allBoxes[3].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[5].textContent) === 'X')) ||
+    (((allBoxes[6].textContent) && (allBoxes[7].textContent) === 'X') && ((allBoxes[8].textContent) === 'X'))) {
+      return console.log("Player Two Wins!");
+  } else if
+    ((((allBoxes[0].textContent) && (allBoxes[3].textContent) === 'X') && ((allBoxes[6].textContent) === 'X')) ||
+    (((allBoxes[1].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[7].textContent) === 'X')) ||
+    (((allBoxes[2].textContent) && (allBoxes[5].textContent) === 'X') && ((allBoxes[8].textContent) === 'X'))) {
+      return console.log("Player Two Wins!");
+  } else if
+    ((((allBoxes[0].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[8].textContent) === 'X')) ||
+    (((allBoxes[2].textContent) && (allBoxes[4].textContent) === 'X') && ((allBoxes[2].textContent) === 'X')))  {
+      return console.log("Player Two Wins!");
+  }
+};
 
 
 
