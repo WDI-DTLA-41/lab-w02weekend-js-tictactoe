@@ -1,0 +1,23 @@
+.board {
+  width: 456px;
+  height: 456px;
+}
+.sq {
+  float: left;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border: 1px black solid;
+}
+.top {
+  border-top: none;
+}
+.bot {
+  border-bottom: none;
+}
+.left {
+  border-left: none;
+}
+.right {
+  border-right: none;
+}
