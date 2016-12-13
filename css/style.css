@@ -27,8 +27,11 @@ img {
 
 button {
   width: 150px;
-  position: relative;
-  left: 44%;
+  display: block;
+  margin: 0 auto;
+
+  p/*osition: relative;
+  left: 34%;*/
 }
 
 .wrapper {

@@ -15,9 +15,9 @@ var player2 = 'o';
 
 
 var startGame =  function() {
- console.log('im here');
-var div = document.getElementById('O');
-div.classList.toggle('O');
+  console.log('im here');
+  var div = document.getElementById('O');
+  div.classList.toggle('O');
 
 };
 
@@ -26,8 +26,8 @@ var nextPlayer = function() {
   square.innerHTML = elemX
 }
 
-cell = document.querySelectorAll('.cell');
-cell.addEventListener('click', startGame)
+var cell = document.querySelectorAll('.cell');
+this.addEventListener('click', startGame)
 
 // if (player1)
 
