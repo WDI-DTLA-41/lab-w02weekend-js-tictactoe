@@ -1,0 +1,9 @@
+.square {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100px;
+}
