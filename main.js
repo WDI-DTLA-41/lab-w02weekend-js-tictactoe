@@ -1,6 +1,10 @@
 var $board = document.querySelector('.board');
+var $start = document.querySelector('#start');
+var $scoreboard = document.querySelector('#scoreboard');
+
 var currentPlayer;
 var board;
+var isPlaying;
 
 var players = [
   {
@@ -27,19 +31,26 @@ var nextPlayer = function(){
 };
 
 var handleClick = function(evt) {
-  var row = this.dataset.row;
-  var col = this.dataset.col;
+  var el = evt.target;
+  if (!isPlaying) { return false }
+  if (!el.classList.contains('square')) return false;
+
+  var row = el.dataset.row;
+  var col = el.dataset.col;
+
   if ( isOccupied(row, col) ) { return false }
   markPosition(row, col);
-  this.textContent = currentPlayer.token;
-  nextPlayer();
+  el.textContent = currentPlayer.token;
+  if ( checkForWin() ) {
+    handleWin();
+  } else {
+    nextPlayer();
+  }
 };
 
-var addEventListeners = function() {
-  var $squares = document.querySelectorAll('.square');
-  $squares.forEach(function($square){
-    $square.addEventListener('click', handleClick);
-  });
+var handleWin = function() {
+  isPlaying = false;
+  renderWin();
 }
 
 var resetBoard = function() {
@@ -67,38 +78,53 @@ var checkForWin = function(){
 };
 
 var checkRowWin = function(n) {
+  if (!board[n][0]) {return false} // check empty strings
   return board[n][0] === board[n][1] && board[n][1] == board[n][2];
 }
 
 var checkColWin = function(n) {
+  if (!board[0][n]) {return false} // check empty strings
   return board[0][n] === board[1][n] && board[1][n] === board[2][n];
 }
 
 var checkLeftDiagWin = function() {
+  if (!board[0][0]) { return false } // check empties
   return board[0][0] === board[1][1] && board[1][1] === board[2][2];
 }
 
 var checkRightDiagWin = function() {
+  if (!board[2][0]) { return false } // check empties
   return board[2][0] === board[1][1] && board[1][1] === board[0][2];
 }
 
 var render = function(){
-  $board.innerHTML = '';
-  board.forEach(function(row, i){
-    $board.innerHTML += '<div class="row">';
-    row.forEach(function(col, j) {
-      $board.innerHTML += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + col + '</div>'
-    })
-    $board.innerHTML += '</div>';
-  });
-  return $board;
+  $board.innerHTML = renderBoard();
 };
 
+var renderBoard = function() {
+  var html = '';
+  board.forEach(function(row, i){
+    html += '<div class="row">';
+    row.forEach(function(col, j) {
+      html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + col + '</div>'
+    })
+    html += '</div>';
+  });
+  return html;
+}
+
+var renderWin = function(){
+  $scoreboard.textContent = currentPlayer.token + ' wins!';
+}
+
 var startGame = function() {
+  $scoreboard.textContent = '';
+  isPlaying = true;
   resetBoard();
   render();
-  addEventListeners();
   nextPlayer();
 }
 
-startGame();
+
+$board.addEventListener('click', handleClick);
+$start.addEventListener('click', startGame);
