@@ -1,0 +1,91 @@
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+#cell0, #cell1, #cell2 {
+  border-top: none;
+}
+
+#cell0, #cell3, #cell6 {
+  border-left: none;
+}
+
+#cell2, #cell5, #cell8 {
+  border-right: none;
+}
+
+#cell6, #cell7, #cell8 {
+  border-bottom: none;
+}
+
+p {
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+#gameboard {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 25px;
+/*  margin-bottom: 100px;*/
+/*  overflow:auto;*/
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+  }
+
+.cell {
+  width: 31%;
+  height: 140px;
+  border: 5px solid black;
+/*  margin-left:-1px;
+  margin-bottom:-1px;*/
+  float: left;
+  font-size: 10em;
+  text-align: center;
+
+
+/*  display: inline-block;
+  overflow:auto;*/
+}
+
+span {
+  position: relative;
+  top: -50px;
+
+}
+
+#gameboard:after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 25px;
+  border: none;
+  height: 50px;
+  width: 75px;
+  font-size: 1em;
+  background-color: #008CBA;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #f44336;
+}
+
+button:active {
+   background-color: #008CBA;
+}
