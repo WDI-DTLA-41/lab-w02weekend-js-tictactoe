@@ -67,14 +67,16 @@ var resetBoard = function() {
 }
 
 var checkForWin = function(){
-  return checkRowWin(0) ||
-  checkRowWin(1) ||
-  checkRowWin(2) ||
-  checkColWin(0) ||
-  checkColWin(1) ||
-  checkColWin(2) ||
-  checkLeftDiagWin() ||
-  checkRightDiagWin();
+  return (
+    checkRowWin(0) ||
+    checkRowWin(1) ||
+    checkRowWin(2) ||
+    checkColWin(0) ||
+    checkColWin(1) ||
+    checkColWin(2) ||
+    checkLeftDiagWin() ||
+    checkRightDiagWin()
+  );
 };
 
 var checkRowWin = function(n) {
@@ -94,7 +96,7 @@ var checkLeftDiagWin = function() {
 
 var checkRightDiagWin = function() {
   if (!board[2][0]) { return false } // check empties
-  return board[2][0] === board[1][1] && board[1][1] === board[0][2];
+  return ;
 }
 
 var render = function(){
