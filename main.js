@@ -10,25 +10,26 @@ var squares = document.querySelectorAll('.square');
 
 var players = [
       {
-        name:"x"
+        name:"X"
       },
       {
-        name:"o"
+        name:"O"
       }
 
     ];
 
-var currentPlayer = players[0];
+var currentPlayer;
 var reset = document.querySelector('#reset');
-
+var h2 = document.querySelector('h2');
 
 var nextTurn = function() {
   // change who currentPLayer points at
-  if(currentPlayer.name ==='x') {
+  if(currentPlayer && currentPlayer.name ==='X') {
     currentPlayer = players[1];
+    h2.textContent = "Player: " + players[0].name;
   }else {
     currentPlayer = players[0];
-
+     h2.textContent = "Player: " + players[1].name;
   }
 }
 
@@ -79,6 +80,7 @@ var resetBoard = function() {
   }
    document.querySelector('.board').innerHTML = html;
    currentPlayer = players[1];
+   h2.textContent = "Player: " + players[0].name;
    addEventListeners();
    }
 
