@@ -1,11 +1,6 @@
 // console.log('ds');
 var squares = document.querySelectorAll('.square');
 
-var originalBoard = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-    ];
 
   var board = [
     [1, 2, 3],
@@ -24,6 +19,7 @@ var players = [
     ];
 
 var currentPlayer = players[0];
+var reset = document.querySelector('#reset');
 
 
 var nextTurn = function() {
@@ -66,6 +62,26 @@ var renderBoard = function() {
    addEventListeners();
 }
 
+var resetBoard = function() {
+    board = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+    ];
+
+    var html = '';
+    for (var i=0; i < board.length; i++) {
+    html += '<div class="row">'
+    for(var j = 0; j < board[i].length; j++){
+       html += '<div class="square" data-row="' + i + '"data-col="' + j + '">' + board[i][j] + '</div>';
+    }
+      html+='</div>'
+  }
+   document.querySelector('.board').innerHTML = html;
+   currentPlayer = players[1];
+   addEventListeners();
+   }
+
   // for(var i=0; i < '.squares'.length;i++) {
   //   // need help
   //   squares[i].addEventListener('click', handleClick)
@@ -79,3 +95,5 @@ var renderBoard = function() {
   }
 
   renderBoard();
+
+reset.addEventListener('click', resetBoard);
