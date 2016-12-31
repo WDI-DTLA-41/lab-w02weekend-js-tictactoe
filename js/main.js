@@ -8,8 +8,6 @@ for (i = 0; i < 9; i++){
   boxes.addEventListener('click', changeX);
 }
 
-var table = document.querySelector('table');
-
 function changeO(evt){
   console.log('clicked');
   evt.target.textContent='o';
@@ -25,8 +23,8 @@ function changeX(evt){
 function reset(evt){
   console.log('reset clicked');
   var boxes = document.querySelectorAll('.boxes');
-  for (i = 0; i < boxes.length; i++){
-    boxes.textContent = '';
+  for (var i = 0; i < 9; i++){
+    boxes[i].textContent = '';
   }
 }
 
