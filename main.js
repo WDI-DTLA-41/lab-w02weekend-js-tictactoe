@@ -1,9 +1,5 @@
 console.log('hi');
-var board = [
-  [1,2,3],
-  [4,5,6],
-  [7,8,9]
-];
+var board = [ [0,1,2], [3,4,5], [6,7,8] ];
 
 var players = [
   {
@@ -15,15 +11,19 @@ var players = [
 ];
 
 var currentPlayer;
+var htmlPlayer = document.querySelector('.currentPlayer');
 
 //looks at what the current player is, and changes player to next player
 var nextTurn = function() {
   //change who currentPlayer points at;
   if (currentPlayer && currentPlayer.name === 'x') {
     currentPlayer = players[1];
+    htmlPlayer.textContent = 'Player: ' + players[0].name;
   } else {
       currentPlayer = players[0];
+    htmlPlayer.textContent = 'Player: ' + players[1].name;
   }
+
 }
 
 var reset = document.querySelector('button');
@@ -71,8 +71,10 @@ var resetBoard = function() {
   }
   document.querySelector('.board').innerHTML = html;
   currentPlayer = players[1];
+  htmlPlayer.textContent = 'Player: ' + players[0].name;
   addEventListeners();
 }
+
 //listens for any clicks on the squares in tic tac toe grid
 var addEventListeners = function() {
 reset.addEventListener('click', resetBoard);
