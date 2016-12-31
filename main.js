@@ -1,7 +1,13 @@
 // console.log('ds');
 var squares = document.querySelectorAll('.square');
 
-var board = [
+var originalBoard = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+    ];
+
+  var board = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
@@ -33,25 +39,43 @@ var nextTurn = function() {
 var handleClick = function(evt) {
   // console.log(evt.target, this);
   var position = this.dataset;
+// check that content in square is a number / available space
+  var isNum = parseFloat(evt.target.textContent);
+  if(Number.isInteger(isNum)===true ) {
+    // if the space is a number, not taken the next player goes
+    nextTurn();
+    // gives the player their mark on the board
+    board[position.row] [position.col] = currentPlayer.name;
+    // updates board display
+    renderBoard();
+  }
   console.log(board[position.row][position.col]);
-  board[position.row] [position.col] = currentPlayer.name;
-  nextTurn();
 
+
+}
 var renderBoard = function() {
   var html = '';
   for (var i=0; i < board.length; i++) {
     html += '<div class="row">'
     for(var j = 0; j < board[i].length; j++){
-      html += '<div class="square" data-row="' + i + '"data-col=" + j + '">' + board[i][j]
-
+       html += '<div class="square" data-row="' + i + '"data-col="' + j + '">' + board[i][j] + '</div>';
     }
       html+='</div>'
   }
-  document.querySelector(.board).innerHML = html;
-}
+   document.querySelector('.board').innerHTML = html;
+   addEventListeners();
 }
 
-  for(var i=0; i < '.squares'.length;i++) {
-    // need help
-    squares[i].addEventListener('click', handleClick)
+  // for(var i=0; i < '.squares'.length;i++) {
+  //   // need help
+  //   squares[i].addEventListener('click', handleClick)
+  // }
+
+  var addEventListeners = function() {
+    var $squares = document.querySelectorAll('.square');
+    for(var i = 0; i < $squares.length; i++) {
+      $squares[i].addEventListener('click', handleClick)
+    }
   }
+
+  renderBoard();
