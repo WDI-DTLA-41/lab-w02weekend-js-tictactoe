@@ -30,6 +30,7 @@ var handleClick = function(evt) {
   var position = this.dataset;
   //console.log(position)
   // console.log( board[position.row][position.col] = currentPlayer.name);
+  nextTurn();
   board[position.row][position.col] = currentPlayer.name;
   renderBoard();
   nextTurn();
